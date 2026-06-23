@@ -1,0 +1,74 @@
+<head>  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">      
+    <link rel="stylesheet" href="styling.css">
+    <link rel="stylesheet" href="https://use.typekit.net/bek1kfe.css">
+    <link rel="stylesheet" href="https://use.typekit.net/rka2sbb.css">
+
+<script>
+    function updateClock() {
+        const now = new Date();
+        const hours = String(now.getHours()).padStart(2, '0');
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        document.getElementById('clock').textContent = `${hours}:${minutes}`;
+    }
+
+    // Start the clock and update every second
+    setInterval(updateClock, 1000);
+    window.onload = updateClock; // Set initial time on page load
+</script>
+
+</head>
+
+<body class="checkin-body">
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="back-arrow">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+        </div>
+        <h1 class="navbar-title">Check-in</h1>
+        <div class="navbar-spacer"></div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="checkin-container">
+        <!-- Success Message -->
+        <h2 class="success-message">Check-in erfolgreich</h2>
+
+        <!-- Profile Image with Pulse -->
+        <div class="image-container">
+            <img class="partner-image" src="Unbenannt-2 (4)-modified.png" alt="Profile">
+        </div>
+
+        <!-- Name -->
+        <h3 class="member-name">Simon Kubsa</h3>
+
+        <!-- Location -->
+        <p class="location">Fitness First München - Am Marienplatz</p>
+
+        <!-- Date and Time -->
+        <div class="datetime-container">
+            <p class="current-time"><span id="clock"></span>,</p>
+            <p class="current-date" id="current-date"></p>
+        </div>
+    </div>
+
+    <!-- EGYM Wellpass Logo -->
+    <div class="logo-container">
+        <img class="egym-logo" src="EGYM-Wellpass_Logo_Black_noBG_20250801.png" alt="EGYM Wellpass">
+    </div>
+
+    <!-- Date Script -->
+    <script>
+        // Get the current date
+        const today = new Date();
+        const year = today.getFullYear().toString().slice(-2);
+        const month = today.getMonth() + 1;
+        const day = today.getDate();
+        const formattedDate = `${day < 10 ? '0' + day : day}.${month < 10 ? '0' + month : month}.${year}`;
+        document.getElementById('current-date').textContent = formattedDate;
+    </script>
+
+</body>
